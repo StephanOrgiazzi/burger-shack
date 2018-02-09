@@ -1,7 +1,11 @@
 import React from "react";
 
+import buntop from '../../assets/images/buntop.png';
+import bunbottom from '../../assets/images/bunbottom.png';
+
 import classes from "./Burger.module.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
+
 
 const burger = (props) => {
 
@@ -25,9 +29,9 @@ const burger = (props) => {
 
     return (
         <div className={classes.Burger} >
-            <BurgerIngredient type="bread-top" />
+            <img src={buntop} alt="top slice of burger bun"/>
                 {ingredientsArray}
-            <BurgerIngredient type="bread-bottom" />
+            <img src={bunbottom} alt="bottom slice of burger bun"/>
         </div>
     )
 };
