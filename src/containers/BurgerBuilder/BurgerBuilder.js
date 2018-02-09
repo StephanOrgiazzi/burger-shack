@@ -32,6 +32,12 @@ class BurgerBuilder extends Component {
             order: true
         });
     }
+
+    orderCancelHandler = () => {
+        this.setState({
+            order: false
+        })
+    }
     
     updatePurchaseState = (ingredients) => {
         const sum = Object.keys(ingredients).map(key => {
@@ -88,7 +94,9 @@ class BurgerBuilder extends Component {
 
         return (
             <React.Fragment>
-                <Modal show={this.state.order} >
+                <Modal 
+                show={this.state.order}
+                modalClosed={this.orderCancelHandler} >
                     <OrderSummary 
                     ingredients={this.state.ingredients} />
                 </Modal>

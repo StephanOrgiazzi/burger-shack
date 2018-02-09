@@ -2,21 +2,26 @@ import React from "react";
 
 import classes from "./BurgerIngredient.module.css";
 
+import bacon from '../../../assets/images/bacon.png';
+import salad from '../../../assets/images/salad.png';
+import cheese from '../../../assets/images/cheese.png';
+import meat from '../../../assets/images/beef.png';
+
 const burgerIngredient = (props) => {
     let ingredient = null;
 
     switch(props.type) {
         case ("meat"):
-            ingredient = <div className={classes.Meat} ></div>;
+            ingredient = <img src={meat} alt="meat"/>;
             break;
         case ("cheese"):
-            ingredient = <div className={classes.Cheese} ></div>;
+            ingredient = <img src={cheese} alt="slice of cheese"/>;
             break;
         case ("salad"):
-            ingredient = <div className={classes.Salad} ></div>;
+            ingredient = <img src={salad} alt="salad"/>;
             break;
         case ("bacon"):
-            ingredient = <div className={classes.Bacon} ></div>;
+            ingredient = <img src={bacon} alt="slice of bacon"/>;
             break;
         default:
             ingredient = null;
