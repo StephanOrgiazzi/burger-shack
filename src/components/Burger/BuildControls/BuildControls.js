@@ -10,22 +10,32 @@ const controls = [
     {label: "Meat", type: "meat"},
 ];
 
+const containerStyle = {
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+    marginTop: "1rem"
+}
+
 const buildControls = (props) => {
     return (
         <div className={classes.BuildControls} >
-            <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
-            {controls.map(control => {
-                return <BuildControl 
-                    key={control.type} 
-                    label={control.label} 
-                    ingredientAdded={() => props.ingredientAdded(control.type)}
-                    ingredientRemoved={() => props.ingredientRemoved(control.type)}
-                    disabled={props.disabled[control.type]} />
-            })}
-            <button 
-                className={classes.OrderButton}
-                disabled={!props.purchasable}
-                onClick={props.order} >ORDER NOW</button>
+            <div style={containerStyle}>
+                {controls.map(control => {
+                    return <BuildControl 
+                        key={control.type} 
+                        label={control.label} 
+                        ingredientAdded={() => props.ingredientAdded(control.type)}
+                        ingredientRemoved={() => props.ingredientRemoved(control.type)}
+                        quantity={props.quantity[control.type]}
+                        disabled={props.disabled[control.type]} />
+                })}
+                <p>Total Price: <strong>${props.price.toFixed(2)}</strong></p>
+                <button 
+                    className={classes.OrderButton}
+                    disabled={!props.purchasable}
+                    onClick={props.order} >ORDER NOW</button>
+            </div>    
         </div>
     )
 };

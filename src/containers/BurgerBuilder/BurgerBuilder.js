@@ -22,7 +22,7 @@ class BurgerBuilder extends Component {
             cheese: 0,
             meat: 0,
         },
-        totalPrice: 4,
+        totalPrice: 2,
         purchasable: false,
         order: false,
     }
@@ -31,6 +31,11 @@ class BurgerBuilder extends Component {
         this.setState({
             order: true
         });
+    }
+
+    orderContinueHandler = () => {
+        console.log("continue order");
+        
     }
 
     orderCancelHandler = () => {
@@ -98,18 +103,22 @@ class BurgerBuilder extends Component {
                 show={this.state.order}
                 modalClosed={this.orderCancelHandler} >
                     <OrderSummary 
-                    ingredients={this.state.ingredients} />
+                    ingredients={this.state.ingredients}
+                    orderCancel={this.orderCancelHandler}
+                    orderContinue={this.orderContinueHandler} 
+                    totalPrice={this.state.totalPrice} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
-                <div>
+                
                     <BuildControls 
                         ingredientAdded={this.addIngredientHandler}
                         ingredientRemoved={this.removeIngredientHandler}
+                        quantity={this.state.ingredients}
                         disabled={disabledInfo}
                         price={this.state.totalPrice}
                         purchasable={this.state.purchasable}
                         order={this.orderHandler} />
-                </div>
+                
             </React.Fragment>
         );
     }

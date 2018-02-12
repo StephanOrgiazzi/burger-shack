@@ -15,7 +15,7 @@ const burgerIngredient = (props) => {
             ingredient = <img src={meat} alt="meat"/>;
             break;
         case ("cheese"):
-            ingredient = <img src={cheese} alt="slice of cheese"/>;
+            ingredient = <img style={classes} src={cheese} alt="slice of cheese"/>;
             break;
         case ("salad"):
             ingredient = <img src={salad} alt="salad"/>;
