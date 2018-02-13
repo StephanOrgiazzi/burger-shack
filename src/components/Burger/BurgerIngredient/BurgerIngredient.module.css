@@ -5,7 +5,7 @@ img {
 
 @media (max-width: 530px) {
     img {
-    width: 80%;
+    width: 65%;
     height: auto;
     }
 }
