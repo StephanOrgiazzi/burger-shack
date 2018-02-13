@@ -7,12 +7,12 @@ const navItems = (props) => {
     return (
         <ul className={classes.NavItems} >
             <NavItem
-            link="/"
+            link="#"
             active >
                 Burger Builder
             </NavItem>
             <NavItem
-            link="/" >
+            link="#" >
                 Checkout
             </NavItem>
         </ul>
