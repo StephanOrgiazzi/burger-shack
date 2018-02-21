@@ -25,6 +25,7 @@ class BurgerBuilder extends Component {
         purchasable: false,
         order: false,
         loading: false,
+        error: null
     }
 
     componentDidMount() {
@@ -33,7 +34,10 @@ class BurgerBuilder extends Component {
                 this.setState({
                     ingredients: response.data
                 })
-            });
+            })
+            .catch(error => {
+                console.log(error);
+            }) ;
     }
 
     orderHandler = () => {
@@ -43,35 +47,17 @@ class BurgerBuilder extends Component {
     }
 
     orderContinueHandler = () => {
-        this.setState({
-            loading: true
-        });
 
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            user: {
-                name: "Glenn Ross",
-                address: {
-                    street: "128 Meserole Avenue",
-                    zipCode: "41351"
-                },
-                email: "sample@gmail.com"
-            }
+        const queryParams = [];
+        for (let key in this.state.ingredients) {
+            queryParams.push(encodeURIComponent(key) + "=" + encodeURIComponent(this.state.ingredients[key]) ); // key="bacon;" this.state.ingredients[key] = 2;
         }
-        axios.post("/orders.json", order)
-            .then(response => {
-                this.setState({
-                    loading: false,
-                    order: false
-                })
-            })
-            .catch(error => {
-                this.setState({
-                    loading: false,
-                    order: false
-                })
-            });
+        queryParams.push("price=" + this.state.totalPrice);
+        const queryString = queryParams.join("&");
+        this.props.history.push({
+            pathname: "/checkout",
+            search: "?" + queryString
+        });
     }
 
     orderCancelHandler = () => {
