@@ -5,10 +5,13 @@
   "homepage": "http://stephanorgiazzi.github.io/burger-shack",
   "dependencies": {
     "axios": "^0.17.1",
+    "just-clone": "^3.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts-cssmodules": "1.0.171"
+    "react-scripts-cssmodules": "1.0.171",
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

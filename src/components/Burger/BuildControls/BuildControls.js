@@ -16,7 +16,7 @@ const containerStyle = {
     textAlign: "center",
     marginTop: "1rem"
 }
-
+    
 const buildControls = (props) => {
     return (
         <div className={classes.BuildControls} >
