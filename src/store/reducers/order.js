@@ -51,9 +51,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ORDER_BURGER_SUCCESS: return orderBurgerSuccess(state, action);
         case actionTypes.ORDER_BURGER_FAILED: return orderBurgerFailed(state, action);
             
-        case actionTypes.FECTH_ORDERS_START: return fetchOrdersStart(state, action);
-        case actionTypes.FECTH_ORDERS_SUCCESS: return fetchOrdersSuccess(state, action);
-        case actionTypes.FECTH_ORDERS_FAILED: return fetchOrdersFailed(state, action);
+        case actionTypes.FETCH_ORDERS_START: return fetchOrdersStart(state, action);
+        case actionTypes.FETCH_ORDERS_SUCCESS: return fetchOrdersSuccess(state, action);
+        case actionTypes.FETCH_ORDERS_FAILED: return fetchOrdersFailed(state, action);
             
         default: return state;    
     }
