@@ -8,11 +8,11 @@
     padding: 10px;
     margin: 10px;
     font-weight: bold;
+    display: block;
 }
 
-.Button:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
+.Button {
+    margin: 0 auto;
 }
 
 .Success {
@@ -21,6 +21,13 @@
 
 .Danger {
     color: red;
+    font-size: .8rem;
+}
+
+.Switch {
+    color: royalblue;
+    font-size: .8rem;
+    font-weight: 600;
 }
 
 .Button:disabled {

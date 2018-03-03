@@ -94,6 +94,10 @@ class ContactData extends Component {
         formIsValid: false,
     }
 
+    componentDidMount() {
+        window.scrollTo(0,document.body.scrollHeight);
+    }
+
     confirmOrderHandler = (event) => { // Useful to prevent reloading on submit, for e.g.
         event.preventDefault();
 
